@@ -31,8 +31,6 @@ export class ApplicationBase {
         this.Footer.appendToElement(element);
         this.NavigationBar.element.find('.mdl-navigation__link').click((event) => {
             let route = event.target.innerHTML;
-            console.log(route);
-            console.log(route);
             this.activateRoute(route);
         });
 
