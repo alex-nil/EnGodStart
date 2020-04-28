@@ -1,83 +1,79 @@
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 100px;
-    width: 100%;
-    overflow: hidden;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
 }
 
 /*Card*/
 .container {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .demo-card-wide.mdl-card {
-    width: 80%;
-    margin-top: 10%;
-    
-  }
-  .demo-card-wide > .mdl-card__title {
-    color: black;
-    height: 176px;
-  }
-  .demo-card-wide > .mdl-card__menu {
-    color: #fff;
-  }
+  width: 80%;
+  margin-top: 10%;
+}
+.demo-card-wide > .mdl-card__title {
+  color: black;
+  height: 176px;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
 
 .mdl-grid {
-    color: black;
-  }
+  color: black;
+}
 
-  /*button*/
+/*button*/
 #myButton {
-    width: 100%;
-    margin: 10px;
-    height: 100%;
-    transition: width 0.5s;
-    text-align: center;
-
+  width: 100%;
+  margin: 10px;
+  height: 100%;
+  transition: width 0.5s;
+  text-align: center;
 }
 #myButton:hover {
-
-    width: 110%;
-    height: 110%;
-    
+  width: 110%;
+  height: 110%;
 }
 
 /*Class button Hello World*/
 
 .myButton {
-	box-shadow: 0px 0px 0px 2px #9fb4f2;
-	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-	background-color:#7892c2;
-	border-radius:10px;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:19px;
-	padding:12px 37px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
+  box-shadow: 0px 0px 0px 2px #9fb4f2;
+  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color: #7892c2;
+  border-radius: 10px;
+  border: 1px solid #4e6096;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 19px;
+  padding: 12px 37px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
 }
 .myButton:hover {
-	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-	background-color:#476e9e;
+  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color: #476e9e;
 }
 .myButton:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
 .hello {
-    font-size: 50px;
+  font-size: 50px;
 }
