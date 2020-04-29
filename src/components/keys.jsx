@@ -4,21 +4,29 @@ class Keys extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      keys: {
-        key1: "Home",
-        key2: "Work",
-        key3: "Car",
-      },
+      keys: ["Home", "Work", "Car"],
     };
-  }
-  myKeys() {
-    return this.state.keys.map((key) => <li>key</li>);
   }
 
   render() {
     return (
-      <div>
-        <ul className="list-group">{this.myKeys}</ul>
+      <div
+        className="col-sm-2 bg-dark d-inline-flex"
+        style={{ height: "1200px" }}
+      >
+        <ul className="list-group">
+          {this.state.keys.map((key, index) => {
+            return (
+              <li key={index.toString()} className="list-group-item">
+                {key}
+                <i
+                  onClick={() => this.props.onClick(this.state.keys[index])}
+                  className="fas fa-plus"
+                ></i>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }

@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import React from "react";
 
 import Menu from "./menu.jsx";
@@ -15,6 +14,7 @@ class App extends React.Component {
       password: "password",
       isLoggedIn: false,
       errorMsg: "",
+      keys: [],
     };
     this.onClick = this.onClick.bind(this);
   }
@@ -32,18 +32,24 @@ class App extends React.Component {
 
   loginForm() {
     if (this.state.isLoggedIn == true) {
-      return <KeyBadge username={this.state.username} />;
+      return <KeyBadge keys={this.state.keys} username={this.state.username} />;
     } else {
       return <Login onClick={this.onClick} errorMsg={this.state.errorMsg} />;
     }
   }
+  onAddKey = (item) => {
+    console.log(item);
+    this.state.keys.push(item);
+    const myList = this.state.keys;
+    this.setState({ keys: myList });
+  };
 
   render() {
     return (
       <div>
         <Header />
         <Menu />
-        <Keys />
+        <Keys onClick={this.onAddKey} />
         {this.loginForm()}
       </div>
     );

@@ -18,13 +18,25 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="card">
-          <div className="card-body">
-            <h1>{this.state.username}</h1>
-            <h1>{this.state.password}</h1>
-            <h4 className="card-title">Welcome</h4>
-            <p className="card-text">Login to start managing your keys!</p>
+      <div
+        className="d-inline-flex justify-content-center"
+        style={{ height: "400px" }}
+      >
+        <div
+          className="card"
+          style={{
+            margin: "20px",
+            width: "400px",
+            backgroundImage: "url(" + "../../images/lock.jpg" + ")",
+            backgroundSize: "contain",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="card-body justify-content-center">
+            <h2 className="card-title text-light">Welcome</h2>
+            <h4 className="card-text text-light">
+              Login to start managing your keys!
+            </h4>
             <input
               type="text"
               name="username"
@@ -38,7 +50,11 @@ class LoginForm extends React.Component {
               onChange={this.onChange}
             />
             <p className="danger">{this.props.errorMsg}</p>
-            <button onClick={() => this.props.onClick(this.state)}>
+            <button
+              type="button"
+              className="button btn-primary"
+              onClick={() => this.props.onClick(this.state)}
+            >
               Login
             </button>
           </div>
