@@ -3,7 +3,6 @@ import React from "react";
 import Menu from "./menu.jsx";
 import Login from "./loginForm.jsx";
 import KeyBadge from "./keyBadge.jsx";
-import Header from "./header.jsx";
 import Keys from "./keys.jsx";
 
 class App extends React.Component {
@@ -46,8 +45,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Header />
+      <div className="row">
         <Menu />
         <Keys onClick={this.onAddKey} />
         {this.loginForm()}

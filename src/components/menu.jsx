@@ -3,7 +3,7 @@ import React from "react";
 class Menu extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-sm bg-dark">
+      <nav id="menu" className="navbar navbar-expand-sm bg-dark col-sm-12">
         <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link" href="link">
