@@ -11,7 +11,7 @@ class Keys extends React.Component {
     return (
       <div
         className="table-responsive bg-dark col-sm-2"
-        style={{ height: "45em", width: "10%" }}
+        style={{ width: "10%" }}
       >
         <table className="table">
           <thead style={{ color: "white" }}>

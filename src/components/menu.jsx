@@ -1,6 +1,20 @@
 import React from "react";
 import "../style/menu.css";
 class Menu extends React.Component {
+  loginButton() {
+    if (this.props.isLoggedIn === "true") {
+      console.log(this.props.isLoggedIn);
+      return (
+        <li className="nav-item">
+          <a className="nav-link" onClick={this.props.onLogout} href="#">
+            Logga Ut
+          </a>
+        </li>
+      );
+    } else {
+      return null;
+    }
+  }
   render() {
     return (
       <nav id="menu" className="navbar navbar-expand-sm bg-dark col-sm-12">
@@ -20,11 +34,7 @@ class Menu extends React.Component {
               Mitt konto
             </a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="link">
-              Logga Ut
-            </a>
-          </li>
+          {this.loginButton()}
         </ul>
       </nav>
     );

@@ -16,9 +16,9 @@ class App extends React.Component {
       errorMsg: "",
       keys: [],
     };
-    this.onClick = this.onClick.bind(this);
+    this.onLogin = this.onLogin.bind(this);
   }
-  onClick(e) {
+  onLogin(e) {
     if (
       e.username === this.state.username &&
       e.password === this.state.password
@@ -30,34 +30,50 @@ class App extends React.Component {
     }
     console.log(this.state.errorMsg);
   }
-  onLogout() {
-    this.setState({ isLoggedIn: false });
-  }
+  onLogout = () => {
+    this.setState({ isLoggedIn: "false" });
+    localStorage.setItem("isLoggedIn", false);
+  };
   loginForm() {
     if (this.state.isLoggedIn === "true") {
-      return <KeyBadge keys={this.state.keys} username={this.state.username} />;
+      return (
+        <KeyBadge
+          onRemoveKey={this.onRemoveKey}
+          keys={this.state.keys}
+          username={this.state.username}
+        />
+      );
     } else {
-      return <Login onClick={this.onClick} errorMsg={this.state.errorMsg} />;
+      return <Login onClick={this.onLogin} errorMsg={this.state.errorMsg} />;
     }
   }
   onAddKey = (item) => {
-    console.log(item);
-    this.state.keys.push(item);
+    if (this.state.keys.includes(item)) {
+      console.log("Allready appended that key");
+    } else {
+      this.state.keys.push(item);
+    }
+
     const myList = this.state.keys;
     this.setState({ keys: myList });
+  };
+  onRemoveKey = (item) => {
+    const array = this.state.keys;
+    const index = array.indexOf(item);
+    array.splice(index, 1);
+    this.setState({ keys: this.state.keys });
+    console.log(item);
   };
   conditionMenu() {
     if (this.state.isLoggedIn === "true") {
       return <Keys onClick={this.onAddKey} />;
-    } else {
-      console.log("does'nt work");
     }
   }
 
   render() {
     return (
       <div className="row">
-        <Menu />
+        <Menu isLoggedIn={this.state.isLoggedIn} onLogout={this.onLogout} />
         {this.conditionMenu()}
 
         {this.loginForm()}

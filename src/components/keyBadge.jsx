@@ -13,11 +13,8 @@ class KeyBadge extends React.Component {
           <div className="card-body bg-dark">
             <h4 className="card-title text-light">
               Välkommen,
-              <span className="text-primary">{this.props.username}</span>
+              <span className="text-primary"> {this.props.username}</span>
             </h4>
-            <p className="card-text text-light" style={{ color: "green" }}>
-              Logga in för att lägga till nycklar till din nyckelbricka
-            </p>
             <p className="text-light">
               Du har {this.props.keys.length} nyclar i brickan.
             </p>
@@ -27,7 +24,12 @@ class KeyBadge extends React.Component {
               return (
                 <li key={index.toString()} className="list-group-item">
                   <h5>{key}</h5>
-                  <span className="badge badge-danger">Remove</span>
+                  <span
+                    onClick={() => this.props.onRemoveKey(key)}
+                    className="badge badge-danger"
+                  >
+                    Remove
+                  </span>
                 </li>
               );
             })}
