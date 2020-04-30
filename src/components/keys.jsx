@@ -1,5 +1,4 @@
 import React from "react";
-
 class Keys extends React.Component {
   constructor(props) {
     super(props);
@@ -11,30 +10,37 @@ class Keys extends React.Component {
   render() {
     return (
       <div
-        className="bg-dark col-sm-3"
-        style={{ height: "45em", width: "15%" }}
+        className="table-responsive bg-dark col-sm-2"
+        style={{ height: "45em", width: "10%" }}
       >
-        <ul syle={{ liststyle: "none" }}>
+        <table className="table">
+          <thead style={{ color: "white" }}>
+            <tr>
+              <th>Tillgängliga nycklar:</th>
+              <th>{this.state.keys.length}</th>
+            </tr>
+          </thead>
           {this.state.keys.map((key, index) => {
             return (
-              <div
-                key={index.toString()}
-                className="border-bottom border-secondary row bg-dark text-light"
-              >
-                <li className="d-flex" key={index.toString()}>
-                  <h5>{key}</h5>
-                </li>
-                <span
-                  key={"span" + index.toString()}
-                  onClick={() => this.props.onClick(this.state.keys[index])}
-                  className="badge badge-success"
-                >
-                  Add
-                </span>
-              </div>
+              <tbody key={index.toString()}>
+                <tr key={index.toString()}>
+                  <td key={index.toString()}>
+                    <h5 className="text-light">{key}</h5>
+                  </td>
+                  <td>
+                    <span
+                      key={"span" + index.toString()}
+                      onClick={() => this.props.onClick(this.state.keys[index])}
+                      className="badge badge-success"
+                    >
+                      Add
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
             );
           })}
-        </ul>
+        </table>
       </div>
     );
   }

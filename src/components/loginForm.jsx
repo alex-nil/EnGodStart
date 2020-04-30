@@ -18,15 +18,13 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div
-        className="d-inline-flex justify-content-center"
-        style={{ height: "400px" }}
-      >
+      <div className="mx-auto" style={{ height: "400px" }}>
         <div
           className="card"
           style={{
             margin: "20px",
             width: "400px",
+            height: "400px",
             backgroundImage: "url(" + "../../images/lock.jpg" + ")",
             backgroundSize: "contain",
             backgroundSize: "cover",

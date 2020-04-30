@@ -4,6 +4,7 @@ import Menu from "./menu.jsx";
 import Login from "./loginForm.jsx";
 import KeyBadge from "./keyBadge.jsx";
 import Keys from "./keys.jsx";
+import Footer from "./footer.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class App extends React.Component {
     this.state = {
       username: "username",
       password: "password",
-      isLoggedIn: false,
+      isLoggedIn: localStorage.getItem("isLoggedIn"),
       errorMsg: "",
       keys: [],
     };
@@ -22,15 +23,18 @@ class App extends React.Component {
       e.username === this.state.username &&
       e.password === this.state.password
     ) {
-      this.setState({ isLoggedIn: true });
+      window.localStorage.setItem("isLoggedIn", true);
+      this.setState({ isLoggedIn: localStorage.getItem("isLoggedIn") });
     } else {
       this.setState({ errorMsg: "Wrong input" });
     }
     console.log(this.state.errorMsg);
   }
-
+  onLogout() {
+    this.setState({ isLoggedIn: false });
+  }
   loginForm() {
-    if (this.state.isLoggedIn == true) {
+    if (this.state.isLoggedIn === "true") {
       return <KeyBadge keys={this.state.keys} username={this.state.username} />;
     } else {
       return <Login onClick={this.onClick} errorMsg={this.state.errorMsg} />;
@@ -42,13 +46,22 @@ class App extends React.Component {
     const myList = this.state.keys;
     this.setState({ keys: myList });
   };
+  conditionMenu() {
+    if (this.state.isLoggedIn === "true") {
+      return <Keys onClick={this.onAddKey} />;
+    } else {
+      console.log("does'nt work");
+    }
+  }
 
   render() {
     return (
       <div className="row">
         <Menu />
-        <Keys onClick={this.onAddKey} />
+        {this.conditionMenu()}
+
         {this.loginForm()}
+        <Footer />
       </div>
     );
   }
