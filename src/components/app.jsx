@@ -1,10 +1,12 @@
 import React from "react";
-
+import { BrowserRouter, Route, HashRouter } from "react-router-dom";
 import Menu from "./menu.jsx";
 import Login from "./loginForm.jsx";
 import KeyBadge from "./keyBadge.jsx";
 import Keys from "./keys.jsx";
 import Footer from "./footer.jsx";
+import About from "./about.jsx";
+import Support from "./support.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -72,13 +74,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <Menu isLoggedIn={this.state.isLoggedIn} onLogout={this.onLogout} />
-        {this.conditionMenu()}
+      <HashRouter>
+        <div className="row">
+          <Menu isLoggedIn={this.state.isLoggedIn} onLogout={this.onLogout} />
+          {this.conditionMenu()}
+          <Route exact path="/" component={() => this.loginForm()} />
+          <Route path="/about" component={About} />
+          <Route path="/support" component={Support} />
+        </div>
 
-        {this.loginForm()}
         <Footer />
-      </div>
+      </HashRouter>
     );
   }
 }

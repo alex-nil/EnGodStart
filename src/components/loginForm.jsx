@@ -18,10 +18,11 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="mx-auto" style={{ height: "400px" }}>
+      <div className="mx-auto" style={{ height: "400px", padding: "40px" }}>
         <div
           className="card"
           style={{
+            padding: "20px",
             margin: "20px",
             width: "400px",
             height: "400px",

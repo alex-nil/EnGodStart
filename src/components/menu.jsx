@@ -20,18 +20,18 @@ class Menu extends React.Component {
       <nav id="menu" className="navbar navbar-expand-sm bg-dark col-sm-12">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" href="link">
-              Tillgänliga nycklar
+            <a className="nav-link" href="/app.html#/">
+              Hantera Nycklar
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="link">
+            <a className="nav-link" href="/app.html#/support">
               Support
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="link">
-              Mitt konto
+            <a className="nav-link" href="/app.html#/about">
+              Om Oss
             </a>
           </li>
           {this.loginButton()}

@@ -1,4 +1,5 @@
 import React from "react";
+import "../style/keys.css";
 class Keys extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +14,7 @@ class Keys extends React.Component {
         className="table-responsive bg-dark col-sm-2"
         style={{ width: "10%" }}
       >
-        <table className="table">
+        <table className="table-borderless">
           <thead style={{ color: "white" }}>
             <tr>
               <th>Tillgängliga nycklar:</th>
