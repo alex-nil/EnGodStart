@@ -12,8 +12,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "username",
-      password: "password",
+      username: "Alex",
+      password: "123",
       isLoggedIn: localStorage.getItem("isLoggedIn"),
       errorMsg: "",
       keys: [],
