@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter, Route, HashRouter } from "react-router-dom";
 import Menu from "./menu.jsx";
 import Login from "./loginForm.jsx";
@@ -39,11 +39,14 @@ class App extends React.Component {
   loginForm() {
     if (this.state.isLoggedIn === "true") {
       return (
-        <KeyBadge
-          onRemoveKey={this.onRemoveKey}
-          keys={this.state.keys}
-          username={this.state.username}
-        />
+        <Fragment>
+          {this.conditionMenu()}
+          <KeyBadge
+            onRemoveKey={this.onRemoveKey}
+            keys={this.state.keys}
+            username={this.state.username}
+          />
+        </Fragment>
       );
     } else {
       return <Login onClick={this.onLogin} errorMsg={this.state.errorMsg} />;
@@ -77,7 +80,7 @@ class App extends React.Component {
       <HashRouter>
         <div className="row">
           <Menu isLoggedIn={this.state.isLoggedIn} onLogout={this.onLogout} />
-          {this.conditionMenu()}
+
           <Route exact path="/" component={() => this.loginForm()} />
           <Route path="/about" component={About} />
           <Route path="/support" component={Support} />

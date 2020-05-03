@@ -5,7 +5,7 @@ class Support extends React.Component {
     return (
       <div>
         <h1>Support</h1>
-        <p>Ring detta nummer: </p>
+        <p>Kontakta oss vid behov av support </p>
       </div>
     );
   }
