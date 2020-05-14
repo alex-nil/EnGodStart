@@ -1,15 +1,22 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "../style/menu.css";
 class Menu extends React.Component {
   loginButton() {
     if (this.props.isLoggedIn === "true") {
       console.log(this.props.isLoggedIn);
       return (
-        <li className="nav-item">
-          <a className="nav-link" onClick={this.props.onLogout} href="#">
-            Logga Ut
-          </a>
-        </li>
+        <Fragment>
+          <li className="nav-item">
+            <a className="nav-link" onClick={this.props.onLogout} href="#">
+              Logga Ut
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/app.html#/account">
+              Konto
+            </a>
+          </li>
+        </Fragment>
       );
     } else {
       return null;

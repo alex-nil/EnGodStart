@@ -7,6 +7,10 @@ import Keys from "./keys.jsx";
 import Footer from "./footer.jsx";
 import About from "./about.jsx";
 import Support from "./support.jsx";
+import Account from "./Account.jsx";
+import EditInfo from "./EditInfo.jsx";
+import Updated from "./Updated.jsx";
+import ErrorBoundary from "./ErrorBoundary.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -81,9 +85,14 @@ class App extends React.Component {
         <div className="row">
           <Menu isLoggedIn={this.state.isLoggedIn} onLogout={this.onLogout} />
 
-          <Route exact path="/" component={() => this.loginForm()} />
-          <Route path="/about" component={About} />
-          <Route path="/support" component={Support} />
+          <ErrorBoundary>
+            <Route exact path="/" component={() => this.loginForm()} />
+            <Route path="/about" component={About} />
+            <Route path="/support" component={Support} />
+            <Route path="/account" component={Account} />
+            <Route path="/editinfo" component={EditInfo} />
+            <Route path="/updated" component={Updated} />
+          </ErrorBoundary>
         </div>
 
         <Footer />

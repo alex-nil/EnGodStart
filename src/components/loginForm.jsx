@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -48,7 +49,9 @@ class LoginForm extends React.Component {
               placeholder="password"
               onChange={this.onChange}
             />
-            <p className="danger">{this.props.errorMsg}</p>
+            <p style={{ color: "red" }} className="danger">
+              {this.props.errorMsg}
+            </p>
             <button
               type="button"
               className="button btn-primary"
@@ -63,4 +66,8 @@ class LoginForm extends React.Component {
   }
 }
 
+LoginForm.propTypes = {
+  username: propTypes.string,
+  password: propTypes.string,
+};
 export default LoginForm;
