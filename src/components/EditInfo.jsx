@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router";
+import propTypes from "prop-types";
+import Updated from "./Updated.jsx";
 
 class EditInfo extends React.Component {
   constructor() {
@@ -8,7 +10,7 @@ class EditInfo extends React.Component {
     this.state = {
       username: "asd",
       email: "",
-      redirect: true,
+      redirect: false,
     };
     this.saveInfo = this.saveInfo.bind(this);
   }
@@ -34,6 +36,7 @@ class EditInfo extends React.Component {
   };
 
   async saveInfo(e) {
+    console.log(this.state.redirect);
     e.preventDefault();
     const body = {
       username: this.state.username,
@@ -45,16 +48,27 @@ class EditInfo extends React.Component {
         .then(function (response) {
           console.log(response);
         })
+        .then(() => this.setState({ redirect: true }))
         .catch((error) => {
           console.log(error);
         });
-      return this.props.history.push("/Updated");
     } catch (error) {
       console.log("This is the error" + error);
     }
   }
 
   render() {
+    if (this.state.redirect) {
+      console.log("this is true");
+      return (
+        <Redirect
+          to={{
+            pathname: "/Updated",
+            state: { username: this.state.username, email: this.state.email },
+          }}
+        />
+      );
+    }
     return (
       <div className="mx-auto">
         <form>
@@ -87,11 +101,14 @@ class EditInfo extends React.Component {
         <ul>
           <li>{this.state.username}</li>
           <li>{this.state.email}</li>
-          <li>{this.state.redirect}</li>
         </ul>
       </div>
     );
   }
 }
+EditInfo.propType = {
+  username: propTypes.number,
+  email: propTypes.string,
+};
 
 export default EditInfo;

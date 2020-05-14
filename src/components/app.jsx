@@ -9,8 +9,8 @@ import About from "./about.jsx";
 import Support from "./support.jsx";
 import Account from "./Account.jsx";
 import EditInfo from "./EditInfo.jsx";
-import Updated from "./Updated.jsx";
 import ErrorBoundary from "./ErrorBoundary.jsx";
+import Updated from "./Updated.jsx";
 
 class App extends React.Component {
   constructor(props) {
