@@ -11,6 +11,7 @@ import Account from "./Account.jsx";
 import EditInfo from "./EditInfo.jsx";
 import ErrorBoundary from "./ErrorBoundary.jsx";
 import Updated from "./Updated.jsx";
+import Contact from "./Contact.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -92,6 +93,16 @@ class App extends React.Component {
             <Route path="/account" component={Account} />
             <Route path="/editinfo" component={EditInfo} />
             <Route path="/updated" component={Updated} />
+            <Route
+              path="/contact"
+              render={(props) => (
+                <Contact
+                  {...props}
+                  header={"Kontakta Oss"}
+                  desc={"Här kan du kontakta oss om du har frågor"}
+                />
+              )}
+            />
           </ErrorBoundary>
         </div>
 

@@ -15,8 +15,8 @@ class EditInfo extends React.Component {
     this.saveInfo = this.saveInfo.bind(this);
   }
 
-  componentDidMount() {
-    this.getInfo();
+  async componentDidMount() {
+    await this.getInfo();
   }
 
   async getInfo() {

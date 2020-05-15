@@ -41,6 +41,11 @@ class Menu extends React.Component {
               Om Oss
             </a>
           </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/app.html#/contact">
+              Kontakt
+            </a>
+          </li>
           {this.loginButton()}
         </ul>
       </nav>
