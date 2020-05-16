@@ -13,7 +13,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.errorMessage) {
       return (
-        <div>
+        <div className="mx-auto">
           <h1>Nånting gick fel, försök igen.</h1>
           <a href="http://localhost:8080/app.html">Till startsida</a>
           <h5>{this.state.errorMessage}</h5>

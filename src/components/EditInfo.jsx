@@ -8,7 +8,7 @@ class EditInfo extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: "asd",
+      username: "",
       email: "",
       redirect: false,
     };
@@ -36,7 +36,6 @@ class EditInfo extends React.Component {
   };
 
   async saveInfo(e) {
-    console.log(this.state.redirect);
     e.preventDefault();
     const body = {
       username: this.state.username,
@@ -53,13 +52,12 @@ class EditInfo extends React.Component {
           console.log(error);
         });
     } catch (error) {
-      console.log("This is the error" + error);
+      console.log(error);
     }
   }
 
   render() {
     if (this.state.redirect) {
-      console.log("this is true");
       return (
         <Redirect
           to={{

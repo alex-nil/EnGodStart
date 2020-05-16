@@ -89,7 +89,16 @@ class App extends React.Component {
           <ErrorBoundary>
             <Route exact path="/" component={() => this.loginForm()} />
             <Route path="/about" component={About} />
-            <Route path="/support" component={Support} />
+            <Route
+              path="/support"
+              render={(props) => (
+                <Support
+                  {...props}
+                  header={"Support"}
+                  desc={"Här kan du kontakta oss om du behöver hjälp."}
+                />
+              )}
+            />
             <Route path="/account" component={Account} />
             <Route path="/editinfo" component={EditInfo} />
             <Route path="/updated" component={Updated} />
