@@ -2,13 +2,20 @@
 
 Kör 'npm install'
 
-För att köra program: npm start
+Starta 2 olika CMD och cd:a in i mappen.
+
+CMD1:
+För att starta servern: npm run server
+CMD2:
+För att starta Appen: npm start
 
 För att bygga program: npm build
 
-Navigera till /app.html
+Express servern kör på port 3000
 
-Logga in med 
+Navigera till http://localhost:8080/app.html
+
+Logga in med
 
 Username: Alex
 
