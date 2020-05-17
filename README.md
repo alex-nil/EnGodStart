@@ -2,6 +2,8 @@
 
 Kör 'npm install'
 
+Kör 'npm install axios'
+
 Starta 2 olika CMD och cd:a in i mappen.
 
 CMD1:
