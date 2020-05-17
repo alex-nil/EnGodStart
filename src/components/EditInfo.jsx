@@ -23,6 +23,10 @@ class EditInfo extends React.Component {
     await axios
       .get("http://localhost:3000/url")
       .then((response) => {
+        console.log(response);
+        if (response === 200) {
+          console.log("YES IT IS");
+        }
         this.setState({ username: response.data.username });
         this.setState({ email: response.data.email });
       })
